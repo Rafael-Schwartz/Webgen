@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>WebGen II</title>
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="container">
+            <div class="logo">
+            <img src="../images/logo_webgen.png" alt="logo">
+        </div>
+            <input type="text" id="search-box" onkeyup="searchFunction()" placeholder="Procurar produto.">
+            <div class="filters">
+                <button onclick="location.href='../index.html'">Todos</button>
+                <button onclick="location.href='celulares.html'">Celular</button>
+                <button onclick="location.href='notebooks.html'">Notebook</button>
+                <button onclick="location.href='televisoes.html'">TV</button>
+                <button onclick="location.href='../carrinho.php'">🛒</button>
+            </div>
+
+			<div class="product-card">
+				<img src="../images/e13.png" alt="e13" />
+				<h2>Motorola E13</h2>
+				<h3>R$ 549,00</h3>
+				<button onclick="location.href='description_E13.html'">Ver</button>
+			</div>
+		
+            <div class="product-card">
+                <img src="../images/a05.png" alt="a05" />
+                <h2>Samsung Galaxy A05</h2>
+                <h3>R$ 899,90</h3>
+                <button onclick="location.href='description_A05.html'">Ver</button>
+            </div>
+            
+    </div>
+
+    <script>
+        function searchFunction() {
+            var input, filter, cards, card, title, i;
+            input = document.getElementById("search-box");
+            filter = input.value.toUpperCase();
+            cards = document.getElementsByClassName("product-card");
+
+            for (i = 0; i < cards.length; i++) {
+                card = cards[i];
+                title = card.getElementsByTagName("h2")[0];
+                if (title.innerText.toUpperCase().indexOf(filter) > -1) {
+                    card.style.display = "";
+                } else {
+                    card.style.display = "none";
+                }
+            }
+        }
+
+        function filterFunction(category) {
+        }
+    </script>
+    
+</body>
+</html>
